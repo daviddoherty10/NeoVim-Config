@@ -57,6 +57,12 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
+-- Navigate between windows using leader key + Vim motion keys
+vim.api.nvim_set_keymap('n', '<leader>h', '<C-W>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>j', '<C-W>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>k', '<C-W>k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>l', '<C-W>l', { noremap = true, silent = true })
+
 -- tab management
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
