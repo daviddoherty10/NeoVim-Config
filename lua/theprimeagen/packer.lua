@@ -39,6 +39,7 @@ return require('packer').startup(function(use)
 		}
 	}	
     use( "bluz71/vim-nightfly-guicolors")
+
     use('christoomey/vim-tmux-navigator')
 end)
 

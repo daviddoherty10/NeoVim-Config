@@ -1,16 +1,54 @@
-vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
+--Entering Normal Mode
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true })
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true })
 
-vim.opt.number = true
-vim.opt.autoindent = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.smarttab = true
-vim.opt.softtabstop = 4
-vim.opt.mouse = 'a'
+
+----------------------------
+----------------------------
+--                        --
+--  The Primeagen Remaps  --
+--                        --
+----------------------------
+----------------------------
+
+--Set Leader Key
+vim.g.mapleader = " "
+
+--File explorer Short Cut
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+--Appends Previous line to current line end
+vim.keymap.set("n", "J", "mzJ`z")
+
+--Moving Highlighted text with K and J Keys
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+--Ctrl and d and u for half page jumping with cursor still in the middle
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+--Search terms in the middle when using /
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+--Adding to System Clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+--Replacing Current Word In Document
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+
+
+----------------------------
+----------------------------
+--                        --
+--  Josean Martinez       --
+--                        --
+----------------------------
+----------------------------
+
 
 
 -- window management
@@ -25,12 +63,4 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
-
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
 vim.keymap.set("x", "<leader>p", [["_dP]])
-
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-
