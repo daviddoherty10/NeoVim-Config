@@ -9,14 +9,11 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
 	-- Replace the language servers listed here
 	-- with the ones you want to install
-	ensure_installed = {'tsserver', 'eslint','jsonls','jdtls','jedi_language_server','tailwindcss','html','clangd'},
+	ensure_installed = {'tsserver', 'eslint','jsonls','jdtls','jedi_language_server','tailwindcss','html','clangd','emmet_language_server','cssls', 'gopls', 'docker_compose_language_service'},
 	handlers = {
 		lsp_zero.default_setup,
 	}
 })
-
-
-
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -29,5 +26,12 @@ local cmp_mappings = lsp_zero.defaults.cmp_mappings({
 
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
+
+lsp_zero.format_on_save({
+  format_opts = {
+    async = false,
+    timeout_ms = 10000,
+  },
+})
 
 lsp_zero.setup()

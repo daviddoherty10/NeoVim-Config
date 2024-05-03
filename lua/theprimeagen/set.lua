@@ -1,3 +1,10 @@
+--prevent recording
+vim.cmd([[
+  silent! unmap q
+  silent! unmap Q
+  silent! unmap <C-q>
+]])
+
 --tabs
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -30,3 +37,6 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.updatetime = 50
+
+vim.opt.shada = ""
+vim.cmd("set shada=")
