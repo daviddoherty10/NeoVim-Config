@@ -1,6 +1,6 @@
 function ColorMyPencils(color)
     color = color or "catppuccin"
-    
+
     require("catppuccin").setup({
         flavour = "auto",
         background = {
@@ -54,4 +54,3 @@ function ColorMyPencils(color)
 end
 
 ColorMyPencils()
-

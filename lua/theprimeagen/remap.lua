@@ -33,7 +33,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 --Adding to System Clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 --Replacing Current Word In Document
@@ -52,9 +52,9 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 
 -- window management
-vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
-vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-vim.keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
+vim.keymap.set("n", "<leader>sv", "<C-w>v")     -- split window vertically
+vim.keymap.set("n", "<leader>sh", "<C-w>s")     -- split window horizontally
+vim.keymap.set("n", "<leader>se", "<C-w>=")     -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
 -- Navigate between windows using leader key + Vim motion keys
@@ -64,12 +64,10 @@ vim.api.nvim_set_keymap('n', '<leader>k', '<C-W>k', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<leader>l', '<C-W>l', { noremap = true, silent = true })
 
 -- tab management
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
+vim.keymap.set("n", "<leader>to", ":tabnew<CR>")   -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+vim.keymap.set("n", "<leader>tn", ":tabn<CR>")     --  go to next tab
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>")     --  go to previous tab
 
 --Adds a full line
 vim.keymap.set("x", "<leader>p", [["_dP]])
-
-
