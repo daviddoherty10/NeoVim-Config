@@ -19,6 +19,7 @@ has not been run on David's Mac.
 | Treesitter parser loading and highlight query compilation | All 23 configured languages passed |
 | External prerequisites and Java runtime health | Passed with Java 21 |
 | StyLua formatting and git whitespace check | Passed |
+| Treesitter migration warning and Go highlight predicates after edits | Passed on Neovim 0.12.5 and 0.12.6 |
 
 ESLint, Tailwind, and Svelte fixtures used disposable project dependencies. Java was
 tested with a standalone class. These checks establish configuration and protocol

@@ -6,6 +6,19 @@ return {
         build = ":TSUpdate",
         config = function()
             local ts = require("nvim-treesitter")
+            -- Changing the config's branch does not replace an already-installed
+            -- legacy plugin until Lazy restores it. Keep startup usable meanwhile.
+            if type(ts.install) ~= "function" then
+                vim.schedule(function()
+                    vim.notify(
+                        "An older nvim-treesitter API is loaded. Run :Lazy restore nvim-treesitter, "
+                            .. "wait for it to finish, then restart Neovim. If this repeats, "
+                            .. "check for an old Packer copy on runtimepath.",
+                        vim.log.levels.WARN
+                    )
+                end)
+                return
+            end
             ts.setup({})
             if vim.g.auto_install_tools ~= false then
                 ts.install(require("config.tools").parsers)
