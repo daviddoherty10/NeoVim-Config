@@ -196,6 +196,12 @@ or paid subscriptions are required for this configuration.
 - `:ConformInfo` shows the formatter selected for the current file.
 - `:checkhealth nvim-treesitter` and `:TSUpdate` diagnose/update parsers.
 - `:Lazy restore` reinstalls the tested plugin revisions.
+- If startup reports `install` is nil in `treesitter.lua`, an older Treesitter API
+  is still installed. Run `:Lazy restore nvim-treesitter`, wait until it finishes,
+  then fully restart Neovim. Next run `:TSUpdate go` and reopen your Go file.
+  Changing the config branch alone does not replace an installed plugin checkout.
+  If it persists, inspect `:lua vim.print(vim.api.nvim_get_runtime_file("lua/nvim-treesitter/query_predicates.lua", true))`
+  for a legacy Packer copy; the pinned main implementation does not contain that file.
 - If `Ctrl-s` freezes your terminal, disable terminal flow control with `stty -ixon`.
 
 For manually managed tools or offline validation, launch with
@@ -208,6 +214,7 @@ Run the included headless checks from the config directory after installing plug
 ```sh
 nvim --headless --cmd 'let g:auto_install_tools = v:false' '+luafile tests/smoke.lua'
 nvim --headless --cmd 'let g:auto_install_tools = v:false' '+luafile tests/lsp.lua'
+nvim --headless --cmd 'let g:auto_install_tools = v:false' '+luafile tests/treesitter.lua'
 ```
 
 The smoke check loads every plugin, exercises the preserved keymaps, and checks that
